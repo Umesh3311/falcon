@@ -1,0 +1,107 @@
+#include<stdio.h>
+#include<conio.h>
+int s[100],n,top=-1,i;                                      \\Declaring variables
+void Create()
+{
+  printf(“Enter the size of the stack:\n”);
+  scanf(“%d”,&n);
+  printf(“\n Stack created successfully”);
+  getch();
+}
+void push() 
+{
+  int x;
+    if(top==n-1)
+    {
+        printf("\n Error Stack is Full");
+         
+    }
+    else
+    {
+        printf(" Enter a value to be pushed:");
+        scanf("%d",&x);
+        top=top+1;                                                         \\Top value increases by 1
+        s[top]=x;
+    }
+    getch();
+}
+void pop()
+{
+    if(top==-1)
+    {
+        printf("\n\t ERROR-STACK IS EMPTY");
+    }
+    else
+    {
+        printf("\n\t The popped elements is %d",s[top]);
+        getch();
+        top=top-1;                                                                       \\Top value decrease by 1
+    }
+}
+void display()
+{
+    if(top==-1)
+       {
+          printf("\nERROR-STACK is empty");
+        } 
+      else
+       {
+        printf("\n The elements in STACK \n");
+        for(i=0; i<=top; i=i+1)
+            printf("\t %d \n”,s[i]);                                  \\All the ements in the stack will be displayed
+        getch();
+}
+      
+ void main()                         \\Main program starts here
+{
+    int choice=0;
+    do
+    {
+        clrscr();
+        {
+             printf(“\t\t\t Stack Operations using Array \n\n”);
+             printf(“\t 1.Create \n”);
+             printf(“\t 2.Push \n”);
+             printf(“\t 3.pop \n”);
+             printf(“\t 4.display \n”);
+             printf(‘\t 5.Exit \n”);
+             printf(“Enter your choice \n”);
+             scanf(“%d”,&choice);
+              switch(choice)
+               {
+                 case 1:
+                 {
+                   Create();
+                   break;
+                 }
+                 case 2:
+                 {
+                    push();
+                    break;
+                  }
+                 case 3:
+                 {
+                   pop();
+                   break;
+                 }
+                case 4:
+                 {
+                   display();
+                   break;
+                }
+               case 5:
+                {
+                 printf(“\n\t PROGRAM ENDS“);
+                 break;
+              }
+              getch();
+             default:
+            {
+                printf (“\n WRONG CHOICE TRY AGAIN”);
+            }
+                 
+        }
+    }
+    while(choice!=5);
+    getch();
+}
